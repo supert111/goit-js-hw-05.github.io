@@ -19,14 +19,20 @@ class Storage {
     if (this._items.includes(item)) return;
     this._items.push(item);
   }
-  removeItem(removedItem) {
-    const newItems = [];
-    for (const item of this._items) {
-      if (item === removedItem) continue;
-      newItems.push(item);
+  removeItem(item) {
+    const index = this._items.indexOf(item);
+    if (index !== -1) {
+      this._items.splice(index,1)
     }
-      this._items = newItems;
   }
+  // removeItem(removedItem) {
+  //   const newItems = [];
+  //   for (const item of this._items) {
+  //     if (item === removedItem) continue;
+  //     newItems.push(item);
+  //   }
+  //     this._items = newItems;
+  // }
 }
 const storage = new Storage([
   'Нанитоиды',
